@@ -1,21 +1,32 @@
 import './App.css'
 import 'react-tabs/style/react-tabs.css';
+import "react-datetime/css/react-datetime.css";
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import ClockSection from './components/ClockBlock/ClockSection.tsx';
+import LogSection from './components/LogSection/LogSection.tsx';
+import { ActionType } from './enums/ActionType.ts';
 
 function App() {
     return (
         <>
             <Tabs>
                 <TabList>
-                    <Tab>Dashboard</Tab>
+                    <Tab>Dashboards</Tab>
                     <Tab>Settings</Tab>
                 </TabList>
-
                 <TabPanel>
-                    <h2>Any content 1</h2>
+                    <ClockSection/>
+                    <LogSection
+                        logLines={[{
+                            id: 1,
+                            dateTime: new Date('04 Dec 1995 00:12:00 GMT'),
+                            actionType: ActionType.WATERING,
+                            value: 123,
+                        }]}
+                    />
                 </TabPanel>
                 <TabPanel>
-                    <h2>Any content 2</h2>
+                    settings
                 </TabPanel>
             </Tabs>
         </>
