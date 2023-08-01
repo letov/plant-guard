@@ -9,6 +9,16 @@ body {
   text-align: center;
 }
 
+.react-tabs {
+  width: 300px;
+}
+
+.loading-section {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
 .clock-section {
   position: relative;
 }
@@ -28,4 +38,24 @@ body {
 
 .log-section td {
   padding: 5px;
+}
+
+.monochrome-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.monochrome-table th, .monochrome-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.monochrome-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.monochrome-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
 }

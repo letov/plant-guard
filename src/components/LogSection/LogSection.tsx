@@ -1,36 +1,32 @@
 import { FC } from 'react';
-import { ActionType } from '../../enums/ActionType.ts';
-import { dateTimeFormat } from '../../utils/helpers.ts';
+import { dateFormat, timeFormat } from '../../utils/helpers.ts';
+import { LogLine } from '../../interfaces/LogLine.ts';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store.ts';
+import { actionTypeTitles } from '../../enums/ActionType.ts';
 
-interface LogLine {
-    id: number,
-    dateTime: Date,
-    actionType: ActionType,
-    value: number,
-}
+const LogSection: FC = () => {
+    const log: LogLine[] = useSelector((state: RootState) => state.log.data ?? []);
 
-interface LogSectionProps {
-    logLines: LogLine[],
-}
-
-const LogSection: FC<LogSectionProps> = ({ logLines }: LogSectionProps) => {
     return (
         <>
             <h3>System Log</h3>
             <div className={'log-section'}>
-                <table>
+                <table className={'monochrome-table'}>
                     <thead>
                     <tr>
-                        <th>Date & Time</th>
+                        <th>Date</th>
+                        <th>Time</th>
                         <th>Action type</th>
                         <th>Value</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {logLines.map((line: LogLine) => (
-                        <tr key={line.id}>
-                            <td>{dateTimeFormat(line.dateTime)}</td>
-                            <td>{line.actionType}</td>
+                    {log.map((line: LogLine) => (
+                        <tr key={`${line.createdAt}_${line.actionType}_${line.value}_${Math.random()}`}>
+                            <td>{dateFormat(new Date(line.createdAt))}</td>
+                            <td>{timeFormat(new Date(line.createdAt))}</td>
+                            <td>{actionTypeTitles[line.actionType] ?? ''}</td>
                             <td>{line.value}</td>
                         </tr>
                     ))}

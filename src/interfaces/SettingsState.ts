@@ -1,7 +1,4 @@
 import { Settings } from './Settings.ts';
+import { CommonState } from './CommonState.ts';
 
-export interface SettingsState {
-    data: Settings | null;
-    loading: boolean;
-    error: string | null;
-}
+export interface SettingsState extends CommonState<Settings> {}
