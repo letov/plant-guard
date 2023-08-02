@@ -1,9 +1,11 @@
+export const leadingZero = (value: number | string | null | undefined) => value ? value.toString().padStart(2, '0') : '00';
+
 export const dateFormat = (dateTime: Date) => (`
-    ${dateTime.getDate().toString().padStart(2, '0')}.${dateTime.getMonth().toString().padStart(2, '0')}.${dateTime.getFullYear() % 100}
+    ${leadingZero(dateTime.getDate())}.${leadingZero(dateTime.getMonth())}.${dateTime.getFullYear() % 100}
 `);
 
 export const timeFormat = (dateTime: Date) => (`
-    ${dateTime.getHours().toString().padStart(2, '0')}:${dateTime.getMinutes().toString().padStart(2, '0')}
+    ${leadingZero(dateTime.getHours())}:${leadingZero(dateTime.getMinutes())}
 `);
 
 export const dateTimeFormat = (dateTime: Date) => (`

@@ -1,9 +1,9 @@
 import 'react-clock/dist/Clock.css';
 import { FC, useEffect, useState } from 'react';
 import Clock from 'react-clock';
-import { dateFormat } from '../../utils/helpers.ts';
+import { dateFormat } from '../utils/helpers.ts';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store.ts';
+import { RootState } from '../store/store.ts';
 
 const ClockSection: FC = () => {
     const dateTime = useSelector((state: RootState) => state.settings.data?.dateTime);

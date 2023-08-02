@@ -49,7 +49,8 @@ export const fetchSettings = (): AppThunk => async (dispatch) => {
 export const saveSettings = (settings: Settings): AppThunk => async (dispatch) => {
     try {
         dispatch(getSettingsStart());
-        await axios.post(url, settings);
+        await new Promise((resolve) => setTimeout(resolve, import.meta.env.VITE_API_REQUEST_DELAY_MS));
+        await axios.put(url, settings);
         dispatch(getSettingsSuccess(settings));
     } catch (error) {
         dispatch(getSettingsFailure('Failed to save settings.'));

@@ -2,12 +2,12 @@ import './App.css'
 import 'react-tabs/style/react-tabs.css';
 import "react-datetime/css/react-datetime.css";
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import Dashboard from './components/Dashboard/Dashboard.tsx';
+import Dashboard from './components/Dashboard.tsx';
 import { useEffect } from 'react';
 import store, { RootState } from './store/store.ts';
 import { fetchSettings } from './features/settingsSlice.ts';
 import { fetchLog } from './features/logSlice.ts';
-import Settings from './components/Settings/Settings.tsx';
+import Settings from './components/Settings.tsx';
 import { useSelector } from 'react-redux';
 import ReactLoading from 'react-loading';
 

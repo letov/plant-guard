@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { dateFormat, timeFormat } from '../../utils/helpers.ts';
-import { LogLine } from '../../interfaces/LogLine.ts';
+import { dateFormat, timeFormat } from '../utils/helpers.ts';
+import { LogLine } from '../interfaces/LogLine.ts';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store.ts';
-import { actionTypeTitles } from '../../enums/ActionType.ts';
+import { RootState } from '../store/store.ts';
+import { actionTypeTitles } from '../enums/ActionType.ts';
 
 const LogSection: FC = () => {
     const log = useSelector((state: RootState) => state.log.data);

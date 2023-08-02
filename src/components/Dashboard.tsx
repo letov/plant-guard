@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import LogSection from '../LogSection/LogSection.tsx';
-import ClockSection from '../ClockSection/ClockSection.tsx';
+import LogSection from './LogSection.tsx';
+import ClockSection from './ClockSection.tsx';
 
 const Dashboard: FC = () => {
     return (

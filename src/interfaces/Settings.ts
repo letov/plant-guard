@@ -3,7 +3,7 @@ import { TimeRange } from './TimeRange.ts';
 export interface Settings {
     dateTime: number;
     silentTime: TimeRange;
-    waterLevel: number;
+    soilMoisture: number;
     checkFrequencyByDay: number;
     volumeWaterPerTimeML: number;
 }
