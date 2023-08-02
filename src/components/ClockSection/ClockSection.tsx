@@ -23,20 +23,18 @@ const ClockSection: FC = () => {
     }, [currentDateTime]);
 
     return (
-        <>
+        <section className={'clock-section'}>
             <h3>System Date & Time</h3>
-            <div className={'clock-section'}>
-                <Clock
-                    className={'clock-section__react-clock'}
-                    value={currentDateTime}
-                    renderNumbers={true}
-                    size={200}
-                />
-                <div className={'clock-section__date'}>
-                    <strong>{dateFormat(currentDateTime)}</strong>
-                </div>
+            <Clock
+                className={'clock-section__react-clock'}
+                value={currentDateTime}
+                renderNumbers={true}
+                size={200}
+            />
+            <div className={'clock-section__date'}>
+                <strong>{dateFormat(currentDateTime)}</strong>
             </div>
-        </>
+        </section>
     );
 };
 

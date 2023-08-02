@@ -19,22 +19,25 @@
     "react-loading": "^2.0.3",
     "react-redux": "^8.1.2",
     "react-tabs": "^6.0.2",
+    "react-time-picker": "^6.5.0",
     "redux": "^4.2.1"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "@types/react-redux": "^7.1.25",
-    "@types/redux": "^3.6.0",
-    "@types/redux-thunk": "^2.1.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.45.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "@vitejs/plugin-react": "^4.0.4",
+    "eslint": "^8.46.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "typescript": "^5.1.6",
+    "vite": "^4.4.8"
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "API_URL"
+    ]
   }
 }

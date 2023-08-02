@@ -3,7 +3,7 @@ body {
 }
 
 #root {
-  max-width: 1280px;
+  width: 300px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -31,31 +31,39 @@ body {
 
 .clock-section__date {
   position: absolute;
-  bottom: 25%;
   left: 50%;
   transform: translate(-50%, 0%);
+  bottom: 25%;
 }
 
-.log-section td {
-  padding: 5px;
-}
-
-.monochrome-table {
+.monochrome-table:not(.datetime-picker table) {
   border-collapse: collapse;
-  width: 100%;
 }
 
-.monochrome-table th, .monochrome-table td {
+.monochrome-table th:not(.datetime-picker th), .monochrome-table td:not(.datetime-picker td) {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.monochrome-table th {
+.monochrome-table th:not(.datetime-picker th) {
   background-color: #f0f0f0;
   font-weight: bold;
 }
 
-.monochrome-table tbody tr:nth-child(even) {
+.monochrome-table tbody tr:nth-child(even):not(.datetime-picker tbody tr) {
   background-color: #f9f9f9;
+}
+
+.datetime-picker input {
+  text-align: center;
+}
+
+.silent-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.silent-time__picker {
+  text-align: center;
 }
