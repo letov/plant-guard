@@ -24,7 +24,6 @@ const ClockSection: FC = () => {
 
     return (
         <section className={'clock-section'}>
-            <h3>System Date & Time</h3>
             <Clock
                 className={'clock-section__react-clock'}
                 value={currentDateTime}

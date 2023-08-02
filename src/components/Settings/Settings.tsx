@@ -18,8 +18,7 @@ const Settings: FC = () => {
     `);
 
     return (
-        <>
-            <h3>Settings</h3>
+        <section className={'settings-section'}>
             <table className={'monochrome-table'}>
                 <thead>
                 <tr>
@@ -65,7 +64,7 @@ const Settings: FC = () => {
                 </tr>
                 </tbody>
             </table>
-        </>
+        </section>
     );
 }
 

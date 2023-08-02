@@ -21,6 +21,7 @@ body {
 
 .clock-section {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .clock-section__react-clock {
@@ -38,11 +39,12 @@ body {
 
 .monochrome-table:not(.datetime-picker table) {
   border-collapse: collapse;
+  width: 100%;
 }
 
 .monochrome-table th:not(.datetime-picker th), .monochrome-table td:not(.datetime-picker td) {
-  padding: 8px;
-  text-align: left;
+  padding: 5px;
+  text-align: center;
   border-bottom: 1px solid #e0e0e0;
 }
 

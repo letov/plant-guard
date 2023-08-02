@@ -14,7 +14,6 @@ const LogSection: FC = () => {
 
     return (
         <section className={'log-section'}>
-            <h3>Log</h3>
             <table className={'monochrome-table'}>
                 <thead>
                 <tr>
