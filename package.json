@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dist": "awot-static"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -30,6 +31,7 @@
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
     "@vitejs/plugin-react": "^4.0.4",
+    "awot-scripts": "^3.1.2",
     "eslint": "^8.46.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
@@ -41,5 +43,11 @@
     "whitelist": [
       "API_URL"
     ]
+  },
+  "awot-static": {
+    "sources": "./dist",
+    "indexFile": "index.html",
+    "sketchDir": "./plant-guard-server",
+    "exclude": []
   }
 }
