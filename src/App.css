@@ -1,16 +1,8 @@
-body {
-  place-items: inherit !important;
-}
-
 #root {
-  width: 300px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
-}
-
-.react-tabs {
-  width: 300px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .loading-section {
@@ -75,6 +67,8 @@ body {
 }
 
 .settings-section__button {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
 

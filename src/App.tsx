@@ -14,12 +14,18 @@ import ReactLoading from 'react-loading';
 function App() {
     const loading = useSelector((state: RootState) => state.settings.loading);
 
-    const tabChanged = () => {
+    const tabChanged = (index: number, last: number) => {
+        if (index === last) {
+            return;
+        }
         store.dispatch(fetchSettings());
         store.dispatch(fetchLog());
     };
 
-    useEffect(tabChanged, []);
+    useEffect(() => {
+        store.dispatch(fetchSettings());
+        store.dispatch(fetchLog());
+    }, []);
 
     const spinner = <ReactLoading className={'loading-section'} type={'cylon'} color={'#000'} width={300}/>;
 

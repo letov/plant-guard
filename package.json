@@ -39,11 +39,6 @@
     "typescript": "^5.1.6",
     "vite": "^4.4.8"
   },
-  "react-dotenv": {
-    "whitelist": [
-      "API_URL"
-    ]
-  },
   "awot-static": {
     "sources": "./dist",
     "indexFile": "index.html",

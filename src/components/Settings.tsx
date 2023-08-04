@@ -131,10 +131,12 @@ const Settings: FC = () => {
                 </tr>
                 </tbody>
             </table>
-            <button
-                className={'monochrome-button settings-section__button'}
-                onClick={updateSettings}
-            >Save</button>
+            <div className={'settings-section__button'}>
+                <button
+                    className={'monochrome-button'}
+                    onClick={updateSettings}
+                >Save</button>
+            </div>
         </section>
     );
 }
