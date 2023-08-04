@@ -2,11 +2,13 @@ import fs from "fs";
 import zlib from "zlib";
 import * as util from "util";
 import { generateRandomString, genSendChunkCode, getMime, toUrl, toVarName, traverse } from "./helpers.js";
+import path from "path";
 
 const inputDir = '../dist';
 const outputFilename = './output/static.c';
-const chunkSize = 30000;
+const chunkSize = 35000;
 const gzip = util.promisify(zlib.gzip);
+const indexFile = 'index.html';
 
 (async () => {
     try {
@@ -27,11 +29,12 @@ const gzip = util.promisify(zlib.gzip);
             let chunkNumber = 0;
             let offset = 0;
             let chunkNames = [];
-            while (offset < data.length) {
-                const chunkData = data.subarray(offset, offset + chunkSize);
-                const compressedData = await gzip(chunkData);
 
-                const uint8Array = new Uint8Array(compressedData);
+            const compressedData = await gzip(data);
+
+            while (offset < compressedData.length) {
+                const chunkData = compressedData.subarray(offset, offset + chunkSize);
+                const uint8Array = new Uint8Array(chunkData);
                 const dataArray = Array.from(uint8Array);
                 const cArrayFormat = dataArray.map(byte => `0x${byte.toString(16)}`).join(', ');
 
@@ -39,7 +42,7 @@ const gzip = util.promisify(zlib.gzip);
                 chunkNames.push(chunkName);
 
                 fs.appendFileSync(outputFilename, `const uint8_t ${chunkName}[] = {${cArrayFormat}};\n`);
-                fs.appendFileSync(outputFilename, `const size_t ${chunkName}_len = ${compressedData.length};\n`);
+                fs.appendFileSync(outputFilename, `const size_t ${chunkName}_len = ${chunkData.length};\n`);
 
                 chunkNumber++;
                 offset += chunkSize;
@@ -56,9 +59,10 @@ esp_err_t ${validVar}_handler(httpd_req_t *req) {
     return ESP_OK;
 }\n`;
 
+            const isIndexFile = path.basename(file) === indexFile;
             const route = `
 httpd_uri_t uri_${validVar} = {
-    .uri = "/${toUrl(file)}",
+    .uri = "/${isIndexFile ? '' : toUrl(file)}",
     .method = HTTP_GET,
     .handler = ${validVar}_handler,
     .user_ctx = NULL
