@@ -53,7 +53,7 @@ esp_err_t ${validVar}_handler(httpd_req_t *req) {
     httpd_resp_set_type(req, "${getMime(file)}");
     httpd_resp_set_hdr(req, "Content-Encoding", "gzip");
     
-    ${genSendChunkCode(chunkNames)}
+${genSendChunkCode(chunkNames)}
     
     httpd_resp_send_chunk(req, NULL, 0);
     return ESP_OK;
