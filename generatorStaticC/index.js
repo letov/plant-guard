@@ -25,7 +25,7 @@ const indexFile = 'index.html';
             const validVar = `${toVarName(file)}_${generateRandomString(5)}`;
             validVars.push(validVar);
 
-            const data = await fs.readFileSync(file);
+            const data = fs.readFileSync(file);
             let chunkNumber = 0;
             let offset = 0;
             let chunkNames = [];
