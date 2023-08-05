@@ -51,10 +51,8 @@ const indexFile = 'index.html';
             const handler = `
 esp_err_t ${validVar}_handler(httpd_req_t *req) {
     httpd_resp_set_type(req, "${getMime(file)}");
-    httpd_resp_set_hdr(req, "Content-Encoding", "gzip");
-    
+    httpd_resp_set_hdr(req, "Content-Encoding", "gzip");\n
 ${genSendChunkCode(chunkNames)}
-    
     httpd_resp_send_chunk(req, NULL, 0);
     return ESP_OK;
 }\n`;
@@ -77,9 +75,7 @@ httpd_uri_t uri_${validVar} = {
             register += `    httpd_register_uri_handler(server, &uri_${validVar});\n`;
         }
 
-        fs.appendFileSync(outputFilename, `
-void static_routing_register(httpd_handle_t server) {
-${register}}`);
+        fs.appendFileSync(outputFilename, `void static_routing_register(httpd_handle_t server) {\n${register}}`);
 
     } catch (err) {
         console.error('Error:', err);
