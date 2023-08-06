@@ -14,10 +14,14 @@ import ReactLoading from 'react-loading';
 function App() {
     const loading = useSelector((state: RootState) => state.settings.loading);
 
+    const initTabInt = parseInt(localStorage.getItem('initTab') ?? '0');
+    const initTab = isNaN(initTabInt) ? 0 : initTabInt;
+
     const tabChanged = (index: number, last: number) => {
         if (index === last) {
             return;
         }
+        localStorage.setItem('initTab', index.toString());
         store.dispatch(fetchSettings());
         store.dispatch(fetchLog());
     };
@@ -31,7 +35,11 @@ function App() {
 
     return (
         <>
-            <Tabs className={'react-tabs'} onSelect={tabChanged}>
+            <Tabs
+                className={'react-tabs'}
+                defaultIndex={initTab}
+                onSelect={tabChanged}
+            >
                 <TabList>
                     <Tab disabled={loading}>Dashboards</Tab>
                     <Tab disabled={loading}>Settings</Tab>
